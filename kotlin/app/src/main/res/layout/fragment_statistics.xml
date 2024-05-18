@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scrollview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".ui.statistics.StatisticsFragment"
+    android:layout_marginBottom="57dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        >
+
+
+        <TextView
+            android:id="@+id/tv_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="   304 345,5 р"
+            android:background="@drawable/amount_background"
+            android:textColor="@color/white"
+            android:paddingVertical="5dp"
+            android:paddingRight="30dp"
+            android:paddingLeft="8dp"
+            android:textSize="24sp"
+            android:layout_marginTop="20dp"
+            android:drawableStart="@drawable/ic_money"/>
+
+
+
+        <ImageView
+            android:id="@+id/grafic"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            tools:background="@color/grey"
+            app:layout_constraintTop_toBottomOf="@id/tv_amount"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="30dp"
+            />
+
+
+        <ImageButton
+            android:id="@+id/btn_change_chart1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/grafic"
+            app:layout_constraintBottom_toBottomOf="@id/grafic"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/ic_btn_back"
+            android:background="@null"/>
+
+        <ImageButton
+            android:id="@+id/btn_change_chart2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/grafic"
+            app:layout_constraintBottom_toBottomOf="@id/grafic"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/arrow_right"
+            android:background="@null"/>
+
+
+        <TextView
+            android:id="@+id/month_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/grafic"
+            tools:text="апрель"
+            android:textSize="24dp"
+            android:layout_marginTop="0dp"/>
+
+        <ImageButton
+            android:id="@+id/btn_change_month_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/month_name"
+            app:layout_constraintEnd_toStartOf="@id/month_name"
+            app:layout_constraintBottom_toBottomOf="@id/month_name"
+            android:background="@drawable/ic_chevron_left"
+            android:layout_marginRight="10dp"
+            />
+
+        <ImageButton
+            android:id="@+id/btn_change_month_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/month_name"
+            app:layout_constraintStart_toEndOf="@id/month_name"
+            app:layout_constraintBottom_toBottomOf="@id/month_name"
+            android:background="@drawable/chevron_right"
+            android:layout_marginLeft="10dp"
+            />
+
+
+        <ImageView
+            android:id="@+id/line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/grafic"
+            android:background="@drawable/line_2"
+            android:layout_marginTop="40dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/line"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            tools:listitem="@layout/item_expence"/>
+        
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</ScrollView>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.myapplication2.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+    <action
+        android:id="@+id/action_homeFragment_to_championshipFragment"
+        app:destination="@id/championshipFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/championshipFragment"
+        android:name="com.example.myapplication2.ui.championship.ChampionshipFragment"
+        android:label="fragment_championship"
+        tools:layout="@layout/fragment_championship" >
+
+        <action
+            android:id="@+id/championshipFragment_to_action_homeFragment"
+            app:destination="@id/navigation_home"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_statistics"
+        android:name="com.example.myapplication2.ui.statistics.StatisticsFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_statistics" />
+
+    <fragment
+        android:id="@+id/navigation_otchet"
+        android:name="com.example.myapplication2.ui.otchet.OtchetFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_otchet" />
+
+    <fragment
+        android:id="@+id/navigation_history"
+        android:name="com.example.myapplication2.ui.history.HistoryFragment"
+        android:label="history"
+        tools:layout="@layout/fragment_history"/>
+</navigation>
