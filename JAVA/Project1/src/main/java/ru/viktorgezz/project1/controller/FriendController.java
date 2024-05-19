@@ -32,7 +32,7 @@ public class FriendController {
     public ResponseEntity<HttpStatus> requestFriend(@RequestBody @Valid FriendDTO friendDTO,
                                                     BindingResult bindingResult) {
         validCashFlow.checkError(bindingResult);
-        friendDAO.addFriend(friendDTO);
+        friendDAO. addFriend(friendDTO);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 

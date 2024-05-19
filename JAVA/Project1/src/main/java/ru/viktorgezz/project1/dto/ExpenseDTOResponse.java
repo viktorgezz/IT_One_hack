@@ -4,10 +4,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
-public class ExpenseDTO {
-
-    private int accountId;
-
+public class ExpenseDTOResponse {
     @NotEmpty(message = "Title should not be empty")
     @Size(min = 0, max = 150, message = "The name size cannot exceed 150 characters")
     private String title;
@@ -18,21 +15,10 @@ public class ExpenseDTO {
     @NotEmpty(message = "The title category must not be empty.")
     private String categoryTitle;
 
-    public ExpenseDTO() {
-    }
-
-    public ExpenseDTO(String title, Double amount, String categoryTitle) {
+    public ExpenseDTOResponse(String title, Double amount, String categoryTitle) {
         this.title = title;
         this.amount = amount;
         this.categoryTitle = categoryTitle;
-    }
-
-    public int getAccountId() {
-        return accountId;
-    }
-
-    public void setAccountId(int accountId) {
-        this.accountId = accountId;
     }
 
     public String getTitle() {

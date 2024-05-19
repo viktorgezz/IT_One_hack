@@ -7,10 +7,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.viktorgezz.project1.dto.ExpenseDTO;
+import ru.viktorgezz.project1.dto.ExpenseDTOResponse;
 import ru.viktorgezz.project1.model.Expense;
 import ru.viktorgezz.project1.repositories.CategoryRepositories;
 import ru.viktorgezz.project1.services.ExpenseService;
 import ru.viktorgezz.project1.util.ValidCashFlow;
+
+import java.util.List;
 
 
 @RestController
@@ -31,6 +34,11 @@ public class ExpenseController {
     @GetMapping("/get_total_amount/{idAccount}")
     public Double getTotalAmount(@PathVariable int idAccount) {
         return expenseService.getSumExpenses(idAccount);
+    }
+
+    @GetMapping("/get_expenses/{idAccount}")
+    public List<ExpenseDTOResponse> getExpenses(@PathVariable int idAccount) {
+        return expenseService.getListExpenseDTO(idAccount);
     }
 
     @PostMapping("/create")

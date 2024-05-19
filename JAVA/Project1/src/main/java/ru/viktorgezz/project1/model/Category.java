@@ -28,6 +28,12 @@ public class Category {
     public Category() {
     }
 
+    public Category(String title, Account ownerCategory, List<Expense> expenses) {
+        this.title = title;
+        this.ownerCategory = ownerCategory;
+        this.expenses = expenses;
+    }
+
     public Category(String title) {
         this.title = title;
     }

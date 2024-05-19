@@ -3,6 +3,8 @@ package ru.viktorgezz.project1.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ru.viktorgezz.project1.dto.ExpenseDTO;
+import ru.viktorgezz.project1.dto.ExpenseDTOResponse;
 import ru.viktorgezz.project1.model.Account;
 import ru.viktorgezz.project1.model.Expense;
 import ru.viktorgezz.project1.repositories.ExpenseRepositories;
@@ -11,6 +13,7 @@ import ru.viktorgezz.project1.util.CashFlowOperations;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional(readOnly = true)
@@ -35,6 +38,24 @@ public class ExpenseService {
 
         List<Expense> expenses = foundAccount.getExpenses();
         return cashFlowOperations.getSumCashFlow(expenses, Expense::getAmount);
+    }
+
+    public List<ExpenseDTOResponse> getListExpenseDTO(int idAccount) {
+        return findOneAccount(idAccount).getExpenses()
+                .stream().map(this::convertToExpenseDTO)
+                .collect(Collectors.toList());
+    }
+
+    public List<Expense> getListExpense(int idAccount) {
+        return findOneAccount(idAccount).getExpenses();
+    }
+
+    private ExpenseDTOResponse convertToExpenseDTO(Expense expense) {
+        return new ExpenseDTOResponse(
+                expense.getTitle(),
+                expense.getAmount(),
+                expense.getCategory().getTitle()
+        );
     }
 
     public Expense findOne(int id) {

@@ -20,7 +20,7 @@ class ChampionshipViewModel : ViewModel() {
     val expence: LiveData<Float> = _expence
     val profit: LiveData<Float> = _profit
 
-    val economy : Float = _expence.value?.toFloat() - _profit.value?.toFloat()
+
 
     init {
         fetchEconomyPercent()
@@ -61,6 +61,8 @@ class ChampionshipViewModel : ViewModel() {
         }
     }
     }
+
+
 
 
 

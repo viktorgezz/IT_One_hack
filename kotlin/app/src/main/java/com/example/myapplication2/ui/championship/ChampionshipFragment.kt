@@ -35,8 +35,17 @@ class ChampionshipFragment : Fragment() {
             binding.tvDuty.text = "${economyPercent} %"
         }
 
-        championshipViewModel.economy.observe(viewLifecycleOwner) { economy ->
-            binding.tvAmount.text = "${economy} руб"
+        championshipViewModel.profit.observe(viewLifecycleOwner) { profit ->
+            binding.tvAmount.text = "${profit} руб"
+        }
+
+        binding.btnExpence.setOnClickListener {
+            val monthlyIncome = binding.etMonthProfit.text.toString().toFloat()
+            val monthlySavings = binding.etExpence.text.toString().toFloat()
+
+            val accountId = 1
+
+
         }
 
 

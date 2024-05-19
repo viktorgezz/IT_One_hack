@@ -1,5 +1,6 @@
 package com.example.myapplication2.data
 
+import okhttp3.Request
 import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.Body
@@ -25,5 +26,15 @@ interface API {
 
     @GET("/goal/get_net_savings/2")
     suspend fun getEconomy(): Response<Float>
+
+    @POST("/goal/create")
+    suspend fun createGoal(@Body createGoal : CreateGoal) : Response<ResponseBody>
+
+
+    @POST("/friend/request_friend")
+    suspend fun requestFriend(@Body requestFriend: RequestFriend) : Response<ResponseBody>
+
+    @GET("/friend/get_requeest/1")
+    suspend fun getRequestFriend() : Response<List<String>>
 
 }

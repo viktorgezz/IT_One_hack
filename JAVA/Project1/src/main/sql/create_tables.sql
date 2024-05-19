@@ -49,15 +49,15 @@ CREATE TABLE Income
 );
 
 
-CREATE TABLE Account_authority
-(
-    id serial PRIMARY KEY,
-    id_account int NOT NULL REFERENCES ACCOUNT(id),
-    c_authority varchar NOT NULL
-);
-
-CREATE TABLE Deactivated_token
-(
-    id UUID PRIMARY KEY,
-    c_keep_until TIMESTAMP NOT NULL CHECK ( c_keep_until > now() )
-);
+-- CREATE TABLE Account_authority
+-- (
+--     id serial PRIMARY KEY,
+--     id_account int NOT NULL REFERENCES ACCOUNT(id),
+--     c_authority varchar NOT NULL
+-- );
+--
+-- CREATE TABLE Deactivated_token
+-- (
+--     id UUID PRIMARY KEY,
+--     c_keep_until TIMESTAMP NOT NULL CHECK ( c_keep_until > now() )
+-- );
